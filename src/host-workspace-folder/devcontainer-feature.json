@@ -1,0 +1,20 @@
+{
+    "name": "Use host workspace folder path",
+    "id": "host-workspace-folder",
+    "version": "1.0.3",
+    "description": "A feature to remind you of your favorite color",
+    "options": {
+    },
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ],
+    "mounts": [
+        {
+            "source": "${localEnv:XAUTHORITY}",
+            "target": "/home/vscode/.Xauthority",
+            "type": "bind"
+        }
+    ],
+    "workspaceFolder": "${localWorkspaceFolder}",
+    "workspaceMount": "source=${localWorkspaceFolder},target=${localWorkspaceFolder},type=bind"
+}

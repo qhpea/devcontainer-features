@@ -1,0 +1,23 @@
+{
+    "name": "Forward X11",
+    "id": "x11",
+    "version": "0.1.0",
+    "description": "Forwards x11",
+    "privileged": true,
+    "containerEnv": {
+		"DISPLAY": "${localEnv:DISPLAY}",
+		"XAUTHORITY": "/var/run/.Xauthority"
+	},
+    "mounts": [
+        {
+            "source": "${localEnv:XAUTHORITY}",
+            "target": "/var/run/.Xauthority",
+            "type": "bind"
+        },
+        {
+            "type": "bind",
+            "source": "/tmp/.X11-unix",
+            "target": "/tmp/.X11-unix"
+        }
+    ]
+}
